@@ -115,9 +115,10 @@ suite('Unit Tests', () => {
         done();
     });
     test('11. Invalid puzzle strings fail the solver', (done) => {
-        // .3..9[3]7.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18
-        let invalidPuzzleString = validPuzzleString.slice(0, 5) + "3" + validPuzzleString.slice(6);
-        assert.deepStrictEqual(invalidPuzzleString, '.3..937.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18');
+        // solvable // .3..927.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18
+        // unsolvable // .[2]..927.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18
+        let invalidPuzzleString = '.2..927.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18';
+        assert.deepStrictEqual(invalidPuzzleString, '.2..927.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18');
         assert.isFalse(solver.solve(invalidPuzzleString));
         done();
     });
