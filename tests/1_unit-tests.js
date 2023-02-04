@@ -5,7 +5,6 @@ const Solver = require('../controllers/sudoku-solver.js');
 let solver = new Solver();
 import { puzzlesAndSolutions } from "../controllers/puzzle-strings.js";
 let validPuzzleString = puzzlesAndSolutions[5][0]; // .3..927.....5.....6..37.9.....6...3......5...7...2.6.12..........51...2.....69.18
-let validPuzzleStringSolution = puzzlesAndSolutions[5][1]; // 431892765972546183658371942529614837163785294784923651216458379895137426347269518
 
 suite('Unit Tests', () => {
     test('1. Logic handles a valid puzzle string of 81 characters', (done) => {

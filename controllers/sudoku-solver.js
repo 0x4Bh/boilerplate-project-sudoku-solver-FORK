@@ -3,33 +3,14 @@ String.prototype.replaceAt = function (index, replacement) {
   return this.substring(0, index) + replacement + this.substring(index + 1);
 }
 class SudokuSolver {
+
   constructor() {
     this.solution = 'unsolved';
   }
+
   setSolution(solution) {
     this.solution = solution;
   }
-  
-/*   puzzleStringToMatrix(puzzleString) {
-    let matrix = [];
-    for (let i = 0; i < 9; i++) {
-      let tempArr = [];
-      for (let j = 0; j < 9; j++) {
-        tempArr[j] = puzzleString.charAt((i * 9) + j);
-      }
-      matrix.push(tempArr);
-    }
-    return matrix;
-  }
-
-  matrixToPuzzleString(matrix) {
-    let puzzleString = '';
-    matrix.forEach(row => {
-      row.forEach(val => {
-        puzzleString = puzzleString.concat(val);
-      });
-    });
-  } */
 
   validate(puzzleString) {
     if (puzzleString.length !== 81) return false;
@@ -124,13 +105,13 @@ class SudokuSolver {
   }
 
   solve(puzzleString) {
-    if(puzzleString.indexOf('.') === -1) {
+    if (puzzleString.indexOf('.') === -1) {
       this.setSolution(puzzleString);
       return true;
     }
-    if(puzzleString.indexOf('.') !== -1) {
+    if (puzzleString.indexOf('.') !== -1) {
       let index = puzzleString.indexOf('.');
-      let moves = this.getPossibleMoves(puzzleString, Number.parseInt(index/9), index%9);
+      let moves = this.getPossibleMoves(puzzleString, Number.parseInt(index / 9), index % 9);
       for (let move of moves) {
         puzzleString = puzzleString.replaceAt(index, move);
         if (this.solve(puzzleString)) return true;
